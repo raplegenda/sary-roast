@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sary Roast — свежая обжарка и подписка на кофе в Алматы</title>
+  <meta name="description" content="Небольшая обжарка в Алматы. Передвиньте ползунок, посмотрите, как меняется зерно за 12 минут, и оформите подписку на кофе со свежей обжаркой.">
+  <meta name="theme-color" content="#E9ECE2">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sary Roast — где остановить обжарку?">
+  <meta property="og:description" content="Интерактивный профиль обжарки и подписка на свежий кофе. Демо-проект.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23E9B826'/%3E%3Cellipse cx='16' cy='16' rx='8' ry='11.5' transform='rotate(32 16 16)' fill='%232B1E17'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Literata:opsz,wght@7..72,400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!--
+    Google Tag Manager: вставьте свой контейнер (GTM-XXXXXXX) вместо заглушки и раскомментируйте.
+    Все события лендинга уходят в window.dataLayer (см. script.js), теги GA4 / Яндекс.Метрики
+    настраиваются в GTM по этим событиям: cta_click, section_view, roast_slider_used,
+    lot_profile_view, faq_open, form_start, generate_lead.
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  -->
+  <script>window.dataLayer = window.dataLayer || [];</script>
+  <script src="script.js" defer></script>
+</head>
+<body id="top">
+
+  <!-- Символ зерна: переиспользуется в логотипе, в блоке профиля и в списке лотов -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="bean" viewBox="0 0 40 40">
+      <g transform="rotate(32 20 20)">
+        <ellipse cx="20" cy="20" rx="12" ry="17" fill="currentColor"/>
+        <path d="M20 4.5c-6 8 6 23 0 31" fill="none" stroke="var(--crease, #E9ECE2)" stroke-width="2.4" stroke-linecap="round"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <a class="skip" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="#top" aria-label="Sary Roast, в начало страницы">
+        <svg class="logo__bean" width="30" height="30" aria-hidden="true"><use href="#bean"/></svg>
+        <span class="logo__word">Sary Roast</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Меню</button>
+
+      <nav id="site-nav" class="nav" aria-label="Основная навигация">
+        <a class="nav__link" href="#coffee">Кофе</a>
+        <a class="nav__link" href="#how">Как это работает</a>
+        <a class="nav__link" href="#faq">Вопросы</a>
+        <a class="btn btn--primary btn--small" href="#subscribe" data-cta="header_subscribe">Подписаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero: интерактивный профиль обжарки -->
+    <section class="hero" id="profile" aria-labelledby="hero-title" data-section="hero">
+      <div class="container hero__inner">
+
+        <div class="hero__text">
+          <h1 id="hero-title" class="hero__title">Где остановить обжарку?</h1>
+          <p class="hero__lead">Sary Roast — небольшая обжарка в Алматы. Передвиньте ползунок и посмотрите, как за двенадцать минут меняются зерно, вкус и запах.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#coffee" data-cta="hero_choose_coffee">Выбрать кофе</a>
+            <a class="btn btn--ghost" href="#subscribe" data-cta="hero_subscribe">Оформить подписку</a>
+          </div>
+        </div>
+
+        <div class="profile" data-profile>
+          <div class="profile__chart" data-chart>
+            <noscript><p class="profile__fallback">Для интерактивного графика обжарки нужен JavaScript. Коротко: за 12 минут зерно проходит сушку, реакцию Майяра, первый треск и развитие. Чем дольше обжарка, тем меньше кислотности и больше горчинки.</p></noscript>
+          </div>
+
+          <div class="readout" aria-live="polite">
+            <svg class="readout__bean" width="64" height="64" aria-hidden="true" data-bean><use href="#bean"/></svg>
+            <dl class="stats">
+              <div class="stats__item">
+                <dt>Время</dt>
+                <dd data-out="time">9:10</dd>
+              </div>
+              <div class="stats__item">
+                <dt>Температура зерна</dt>
+                <dd data-out="temp">199 °C</dd>
+              </div>
+              <div class="stats__item">
+                <dt>Стадия</dt>
+                <dd data-out="stage">Первый треск</dd>
+              </div>
+            </dl>
+            <p class="readout__note" data-out="note"></p>
+          </div>
+
+          <div class="control">
+            <label class="control__label" for="roast-time">Время обжарки</label>
+            <input class="slider" id="roast-time" type="range" min="0" max="720" step="5" value="550" aria-describedby="roast-hint">
+            <p class="control__hint" id="roast-hint">Стрелки на клавиатуре двигают ползунок на 5 секунд.</p>
+            <div class="presets" role="group" aria-label="Готовые профили">
+              <button class="chip" type="button" data-preset="550" aria-pressed="false">Светлая, 9:10</button>
+              <button class="chip" type="button" data-preset="610" aria-pressed="false">Средняя, 10:10</button>
+              <button class="chip" type="button" data-preset="680" aria-pressed="false">Тёмная, 11:20</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Лоты -->
+    <section class="section" id="coffee" aria-labelledby="coffee-title" data-section="coffee">
+      <div class="container">
+        <div class="section__head">
+          <h2 id="coffee-title" class="section__title">Три лота этой недели</h2>
+          <p class="section__lead">Жарим во вторник, отправляем в среду. Нажмите «Показать профиль» и посмотрите, где мы остановили обжарку.</p>
+        </div>
+
+        <ul class="lots">
+          <li class="lot" style="--bean:#C9A058">
+            <svg class="lot__bean" width="56" height="56" aria-hidden="true"><use href="#bean"/></svg>
+            <div class="lot__main">
+              <h3 class="lot__name">Эфиопия Гуджи</h3>
+              <p class="lot__meta">Натуральная обработка, светлая обжарка, остановка на 9:10.</p>
+            </div>
+            <p class="lot__notes">Черника, жасмин, мёд</p>
+            <p class="lot__price">4 900 ₸ <span class="lot__unit">за 250 г</span></p>
+            <button class="btn btn--ghost btn--small lot__action" type="button" data-drop="550" data-lot="ethiopia-guji">Показать профиль</button>
+          </li>
+
+          <li class="lot" style="--bean:#8A5A30">
+            <svg class="lot__bean" width="56" height="56" aria-hidden="true"><use href="#bean"/></svg>
+            <div class="lot__main">
+              <h3 class="lot__name">Колумбия Уила</h3>
+              <p class="lot__meta">Мытая обработка, средняя обжарка, остановка на 10:10.</p>
+            </div>
+            <p class="lot__notes">Красное яблоко, карамель, какао</p>
+            <p class="lot__price">4 400 ₸ <span class="lot__unit">за 250 г</span></p>
+            <button class="btn btn--ghost btn--small lot__action" type="button" data-drop="610" data-lot="colombia-huila">Показать профиль</button>
+          </li>
+
+          <li class="lot" style="--bean:#4F3020">
+            <svg class="lot__bean" width="56" height="56" aria-hidden="true"><use href="#bean"/></svg>
+            <div class="lot__main">
+              <h3 class="lot__name">Бразилия Серрадо</h3>
+              <p class="lot__meta">Натуральная обработка, тёмная обжарка, остановка на 11:20.</p>
+            </div>
+            <p class="lot__notes">Арахис, горький шоколад, кардамон</p>
+            <p class="lot__price">3 900 ₸ <span class="lot__unit">за 250 г</span></p>
+            <button class="btn btn--ghost btn--small lot__action" type="button" data-drop="680" data-lot="brazil-cerrado">Показать профиль</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Как работает -->
+    <section class="section" id="how" aria-labelledby="how-title" data-section="how">
+      <div class="container">
+        <div class="section__head">
+          <h2 id="how-title" class="section__title">От заказа до чашки — три дня</h2>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <p class="step__day">Понедельник</p>
+            <h3 class="step__title">Вы оформляете подписку</h3>
+            <p class="step__text">Заявку принимаем до 18:00. Выберите обжарку и помол, а если не знаете что, мы подберём сами.</p>
+          </li>
+          <li class="step">
+            <p class="step__day">Вторник</p>
+            <h3 class="step__title">Мы жарим вашу партию</h3>
+            <p class="step__text">Даём кофе отдохнуть сутки. На пачке печатаем дату обжарки и профиль, как на графике выше.</p>
+          </li>
+          <li class="step">
+            <p class="step__day">Среда</p>
+            <h3 class="step__title">Курьер привозит кофе</h3>
+            <p class="step__text">По Алматы доставка бесплатная. В другие города отправляем почтой за 2–5 рабочих дней.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Подписка -->
+    <section class="section" id="subscribe" aria-labelledby="subscribe-title" data-section="subscribe">
+      <div class="container subscribe">
+        <div class="subscribe__text">
+          <h2 id="subscribe-title" class="section__title">Оформить подписку</h2>
+          <p class="section__lead">Пауза и отмена в любой момент. Напишите нам до вторника, и ближайшую отправку мы пропустим.</p>
+          <ul class="facts">
+            <li>250 г в пачке, обжарка каждый раз свежая</li>
+            <li>Помол под вашу заварку</li>
+            <li>Доставка по Алматы бесплатная</li>
+          </ul>
+        </div>
+
+        <form class="form" id="subscribe-form" novalidate>
+          <div class="field">
+            <label class="field__label" for="f-name">Как вас зовут</label>
+            <input class="field__input" id="f-name" name="name" type="text" autocomplete="given-name" required aria-describedby="f-name-error">
+            <p class="field__error" id="f-name-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-contact">Телефон или Telegram</label>
+            <input class="field__input" id="f-contact" name="contact" type="text" inputmode="text" autocomplete="tel" required aria-describedby="f-contact-hint f-contact-error">
+            <p class="field__hint" id="f-contact-hint">Например, +7 701 123 45 67 или @username</p>
+            <p class="field__error" id="f-contact-error" hidden></p>
+          </div>
+
+          <fieldset class="field plan">
+            <legend class="field__label">Сколько кофе в месяц</legend>
+            <label class="plan__opt">
+              <input class="plan__input" type="radio" name="plan" value="one-pack">
+              <span class="plan__body">
+                <span class="plan__name">Одна пачка</span>
+                <span class="plan__price">4 200 ₸ в месяц</span>
+              </span>
+            </label>
+            <label class="plan__opt">
+              <input class="plan__input" type="radio" name="plan" value="two-packs" checked>
+              <span class="plan__body">
+                <span class="plan__name">Две пачки</span>
+                <span class="plan__price">7 800 ₸ в месяц</span>
+              </span>
+            </label>
+          </fieldset>
+
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="f-roast">Обжарка</label>
+              <select class="field__input" id="f-roast" name="roast">
+                <option value="light">Светлая: ягоды и цветы</option>
+                <option value="medium">Средняя: карамель и какао</option>
+                <option value="dark">Тёмная: шоколад и орехи</option>
+                <option value="any" selected>Не знаю, подберите</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-grind">Помол</label>
+              <select class="field__input" id="f-grind" name="grind">
+                <option value="beans">Зерном</option>
+                <option value="filter">Воронка</option>
+                <option value="aeropress">Аэропресс</option>
+                <option value="espresso">Эспрессо</option>
+                <option value="french-press">Френч-пресс</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field field--check">
+            <input class="check__input" id="f-consent" name="consent" type="checkbox" required aria-describedby="f-consent-error">
+            <label class="check__label" for="f-consent">Согласен на обработку персональных данных</label>
+            <p class="field__error" id="f-consent-error" hidden></p>
+          </div>
+
+          <!-- UTM-метки подставляются скриптом и уходят вместе с заявкой в CRM -->
+          <input type="hidden" name="utm_source">
+          <input type="hidden" name="utm_medium">
+          <input type="hidden" name="utm_campaign">
+          <input type="hidden" name="utm_content">
+          <input type="hidden" name="utm_term">
+
+          <button class="btn btn--primary form__submit" type="submit">Оформить подписку</button>
+          <div class="form__status" role="status" aria-live="polite" tabindex="-1" data-status></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" aria-labelledby="faq-title" data-section="faq">
+      <div class="container faq-wrap">
+        <h2 id="faq-title" class="section__title">Частые вопросы</h2>
+        <div class="faq">
+          <details name="faq">
+            <summary>Как долго кофе остаётся свежим?</summary>
+            <p>Лучше всего он раскрывается с 4-го по 30-й день после обжарки. Дату обжарки мы печатаем на каждой пачке.</p>
+          </details>
+          <details name="faq">
+            <summary>Какой помол выбрать?</summary>
+            <p>Мы мелем под вашу заварку: воронка, аэропресс, эспрессо или френч-пресс. Если у вас кофемолка, берите зерном.</p>
+          </details>
+          <details name="faq">
+            <summary>Можно поставить подписку на паузу?</summary>
+            <p>Да. Напишите нам до вторника, и ближайшая отправка пропустится. Деньги за неё не списываются.</p>
+          </details>
+          <details name="faq">
+            <summary>Вы доставляете за пределы Алматы?</summary>
+            <p>Да, по всему Казахстану почтой, это 2–5 рабочих дней. По Алматы курьер привозит кофе на следующий день после обжарки.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p class="site-footer__brand">Sary Roast</p>
+      <p class="site-footer__note">Демо-проект для портфолио: бренд, цены и условия вымышлены. Вёрстка и код: Искандер.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
